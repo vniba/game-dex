@@ -1,4 +1,4 @@
-import {HStack, Image, Text} from '@chakra-ui/react'
+import {HStack, Text} from '@chakra-ui/react'
 function NavBar() {
     return (
        <HStack>
