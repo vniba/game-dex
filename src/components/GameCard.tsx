@@ -8,7 +8,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import PlatformIconsList from "./PlatformIconsList.tsx";
-import CriticStore from "../hooks/CriticStore.tsx";
+import CriticStore from "./CriticStore.tsx";
 import getCroppedImageUrl from "../services/image-url.ts";
 import GameCardContainer from "./GameCardContainer.tsx";
 

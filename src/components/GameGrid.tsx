@@ -5,7 +5,7 @@ import GameCardSkeleton from "./GameCardSkelton.tsx";
 import GameCardContainer from "./GameCardContainer.tsx";
 
 function GameGrid() {
-  const { error, games, isLoading } = useGames();
+  const { error, data, isLoading } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -23,7 +23,7 @@ function GameGrid() {
               <GameCardSkeleton />{" "}
             </GameCardContainer>
           ))}
-        {games.map((game) => (
+        {data.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </SimpleGrid>
