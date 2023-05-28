@@ -1,5 +1,6 @@
-import useGames from '../services/hooks/useGames.ts';
-import {Text} from '@chakra-ui/react';
+import useGames from '../hooks/useGames.ts';
+import {SimpleGrid, Text} from '@chakra-ui/react';
+import GameCard from './GameCard.tsx';
 
 
 
@@ -10,9 +11,9 @@ const {error,games} = useGames()
     return (
         <>
             {error && <Text color='red'>{error}</Text>}
-            <ul>
-                {games.map(game=><li key={game.id}>{game.name}</li> )}
-            </ul>
+           <SimpleGrid padding={12} columns={{sm:1,md:2,lg:3,xl:5}} spacing={10}>
+                {games.map(game=><GameCard key={game.id} game={game} />)}
+           </SimpleGrid>
         </>
     );
 }
