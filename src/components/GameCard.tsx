@@ -29,7 +29,10 @@ function GameCard({ game }: Props) {
       <HoverableCard>
         <GameCardContainer>
           <Card variant="filled">
-            <Image src={getCroppedImageUrl(game.background_image)} />
+            <Image
+              src={getCroppedImageUrl(game.background_image)}
+              alt={game.name}
+            />
             <CardBody textAlign="center">
               <Heading fontSize="2xl">{game.name}</Heading>
               <HStack justifyContent="space-between">
