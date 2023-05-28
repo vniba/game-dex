@@ -10,6 +10,7 @@ import {
 import PlatformIconsList from "./PlatformIconsList.tsx";
 import CriticStore from "../hooks/CriticStore.tsx";
 import getCroppedImageUrl from "../services/image-url.ts";
+import GameCardContainer from "./GameCardContainer.tsx";
 
 interface Props {
   game: Game;
@@ -26,24 +27,20 @@ function GameCard({ game }: Props) {
   return (
     <>
       <HoverableCard>
-        <Card
-          borderRadius={8}
-          overflow="hidden"
-          alignItems="center"
-          justifyContent="center"
-          variant="filled"
-        >
-          <Image src={getCroppedImageUrl(game.background_image)} />
-          <CardBody textAlign="center">
-            <Heading fontSize="2xl">{game.name}</Heading>
-            <HStack justifyContent="space-between">
-              <PlatformIconsList
-                platforms={game.parent_platforms.map((p) => p.platform)}
-              />
-              <CriticStore score={game.metacritic} />
-            </HStack>
-          </CardBody>
-        </Card>
+        <GameCardContainer>
+          <Card variant="filled">
+            <Image src={getCroppedImageUrl(game.background_image)} />
+            <CardBody textAlign="center">
+              <Heading fontSize="2xl">{game.name}</Heading>
+              <HStack justifyContent="space-between">
+                <PlatformIconsList
+                  platforms={game.parent_platforms.map((p) => p.platform)}
+                />
+                <CriticStore score={game.metacritic} />
+              </HStack>
+            </CardBody>
+          </Card>
+        </GameCardContainer>
       </HoverableCard>
     </>
   );
