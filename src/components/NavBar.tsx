@@ -1,5 +1,5 @@
 import { HStack, Text } from "@chakra-ui/react";
-import ColorModeSwitch from "../../ColorModeSwitch.tsx";
+import ColorModeSwitch from "./ColorModeSwitch.tsx";
 import Search from "./Search.tsx";
 
 interface Props {
