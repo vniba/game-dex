@@ -2,16 +2,20 @@ import { Game } from "../hooks/useGames.ts";
 import {
   Card,
   CardBody,
+  CardFooter,
   chakra,
   Heading,
   HStack,
+  Icon,
   Image,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import PlatformIconsList from "./PlatformIconsList.tsx";
 import CriticStore from "./CriticStore.tsx";
 import getCroppedImageUrl from "../services/image-url.ts";
 import GameCardContainer from "./GameCardContainer.tsx";
+import { BsStarFill } from "react-icons/all";
 
 interface Props {
   game: Game;
@@ -31,7 +35,7 @@ function GameCard({ game }: Props) {
     <>
       <HoverableCard>
         <GameCardContainer>
-          <Card variant='filled' colorScheme='teal' bg={bgColor} h='380'>
+          <Card variant='filled' colorScheme='teal' bg={bgColor} h='400'>
             <Image
               src={getCroppedImageUrl(game.background_image)}
               alt={game.name}
@@ -47,6 +51,14 @@ function GameCard({ game }: Props) {
                 {game.name}
               </Heading>
             </CardBody>
+            <CardFooter>
+              <HStack>
+                <Text fontSize='md'>
+                  <Icon as={BsStarFill} color='yellow.400' marginRight='1' />
+                  {game.ratings_count}
+                </Text>
+              </HStack>
+            </CardFooter>
           </Card>
         </GameCardContainer>
       </HoverableCard>
