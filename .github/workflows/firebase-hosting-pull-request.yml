@@ -7,10 +7,13 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    env:
+      VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
     steps:
       - uses: actions/checkout@v3
       - run: npm install -g pnpm
       - run: pnpm install --frozen-lockfile && pnpm run build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
