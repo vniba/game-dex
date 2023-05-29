@@ -5,7 +5,7 @@ const config: ThemeConfig = {
 };
 
 const theme = extendTheme({
-  ...config,
+  config,
   fonts: {
     body: "Raleway, sans-serif",
     heading: "Raleway, sans-serif",
