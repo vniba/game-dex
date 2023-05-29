@@ -10,7 +10,7 @@ function GameHeading({ gameQuery }: Props) {
   } Games`;
 
   return (
-    <Heading as='h2' marginY={4}>
+    <Heading color='gray.500' as='h2' marginY={4}>
       {heading}
     </Heading>
   );

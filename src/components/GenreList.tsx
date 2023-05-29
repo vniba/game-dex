@@ -1,6 +1,7 @@
 import useGenres, { Genres } from "../hooks/useGenres.ts";
 import {
   Button,
+  Heading,
   HStack,
   Image,
   List,
@@ -16,30 +17,37 @@ interface Props {
 function GenreList({ onSelectGenre, selectedGenre }: Props) {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
-  if (isLoading) return <Spinner color="teal.700" size="md" />;
+  if (isLoading) return <Spinner color='teal.700' size='md' />;
 
   return (
-    <List>
-      {data.map((g) => (
-        <ListItem key={g.id} paddingY={2}>
-          <HStack>
-            <Image
-              boxSize="33px"
-              borderRadius={8}
-              src={getCroppedImageUrl(g.image_background)}
-            />
-            <Button
-              color={g.id === selectedGenre?.id ? "teal" : "white"}
-              fontSize="md"
-              variant="link"
-              onClick={() => onSelectGenre(g)}
-            >
-              {g.name}
-            </Button>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading fontSize='xl' color='green.500' marginBottom={2}>
+        Genres
+      </Heading>
+      <List>
+        {data.map(g => (
+          <ListItem key={g.id} paddingY={2}>
+            <HStack>
+              <Image
+                objectFit='cover'
+                boxSize='33px'
+                borderRadius={8}
+                src={getCroppedImageUrl(g.image_background)}
+              />
+              <Button
+                whiteSpace='normal'
+                textAlign='left'
+                color={g.id === selectedGenre?.id ? "teal" : "white"}
+                fontSize='md'
+                variant='link'
+                onClick={() => onSelectGenre(g)}>
+                {g.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 }
 
