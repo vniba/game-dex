@@ -6,6 +6,7 @@ import {
   Heading,
   HStack,
   Image,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import PlatformIconsList from "./PlatformIconsList.tsx";
 import CriticStore from "./CriticStore.tsx";
@@ -16,6 +17,8 @@ interface Props {
   game: Game;
 }
 function GameCard({ game }: Props) {
+  const bgColor = useColorModeValue("gray.300", "gray.900");
+  const textColor = useColorModeValue("black", "white");
   const HoverableCard = chakra(Card, {
     baseStyle: {
       transition: "transform .3s ease",
@@ -28,7 +31,7 @@ function GameCard({ game }: Props) {
     <>
       <HoverableCard>
         <GameCardContainer>
-          <Card variant='filled' colorScheme='teal'>
+          <Card variant='filled' colorScheme='teal' bg={bgColor} h='380'>
             <Image
               src={getCroppedImageUrl(game.background_image)}
               alt={game.name}
@@ -40,7 +43,9 @@ function GameCard({ game }: Props) {
                 />
                 <CriticStore score={game.metacritic} />
               </HStack>
-              <Heading fontSize='2xl'>{game.name}</Heading>
+              <Heading marginTop={1} color={textColor} fontSize='2xl'>
+                {game.name}
+              </Heading>
             </CardBody>
           </Card>
         </GameCardContainer>
