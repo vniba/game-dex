@@ -28,19 +28,19 @@ function GameCard({ game }: Props) {
     <>
       <HoverableCard>
         <GameCardContainer>
-          <Card variant="filled">
+          <Card variant='filled'>
             <Image
               src={getCroppedImageUrl(game.background_image)}
               alt={game.name}
             />
-            <CardBody textAlign="center">
-              <Heading fontSize="2xl">{game.name}</Heading>
-              <HStack justifyContent="space-between">
+            <CardBody textAlign='center'>
+              <HStack justifyContent='space-between'>
                 <PlatformIconsList
-                  platforms={game.parent_platforms.map((p) => p.platform)}
+                  platforms={game.parent_platforms.map(p => p.platform)}
                 />
                 <CriticStore score={game.metacritic} />
               </HStack>
+              <Heading fontSize='2xl'>{game.name}</Heading>
             </CardBody>
           </Card>
         </GameCardContainer>
