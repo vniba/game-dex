@@ -28,7 +28,7 @@ function GameCard({ game }: Props) {
     <>
       <HoverableCard>
         <GameCardContainer>
-          <Card variant='filled'>
+          <Card variant='filled' bg='blackAlpha.400' colorScheme='teal'>
             <Image
               src={getCroppedImageUrl(game.background_image)}
               alt={game.name}

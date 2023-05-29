@@ -7,6 +7,7 @@ import {
   List,
   ListItem,
   Spinner,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url.ts";
 
@@ -16,6 +17,7 @@ interface Props {
 }
 function GenreList({ onSelectGenre, selectedGenre }: Props) {
   const { data, isLoading, error } = useGenres();
+  const textColor = useColorModeValue("gray.900", "white");
   if (error) return null;
   if (isLoading) return <Spinner color='teal.700' size='md' />;
 
@@ -35,9 +37,9 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
                 src={getCroppedImageUrl(g.image_background)}
               />
               <Button
+                color={g.id === selectedGenre?.id ? "teal" : textColor}
                 whiteSpace='normal'
                 textAlign='left'
-                color={g.id === selectedGenre?.id ? "teal" : "white"}
                 fontSize='md'
                 variant='link'
                 onClick={() => onSelectGenre(g)}>
