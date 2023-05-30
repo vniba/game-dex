@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
+    "target": "esnext",
+    "lib": ["DOM", "DOM.Iterable", "esnext"],
+    "module": "esnext",
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -13,7 +13,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
-
+    "importHelpers": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

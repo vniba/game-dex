@@ -14,6 +14,7 @@ export interface Game {
   metacritic: number;
   rating_top: number;
   ratings_count: number;
+  playtime: number;
 }
 
 const useGames = (gameQuery: GameQuery) =>
